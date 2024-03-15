@@ -1,0 +1,124 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+// import description from '../../components/description.astro';
+
+const posts = (await getCollection('3-sem')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+			main {
+				width: 960px;
+				padding-top: 100px;
+			}
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				
+			}
+			ul li {
+				width: calc(100% - 20px);
+			}
+			ul li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+				
+			}
+			ul li img {
+				margin-bottom: 0.5rem;
+				border-radius: 12px;
+				
+			}
+			ul li a {
+				display: block;
+			
+			}
+			.title-box {
+				background-color: #f2f2f2;
+				padding: 1rem;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+}
+			.title {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1;
+			}
+			.date {
+				margin: 0;
+				color: rgb(var(--gray));
+			}
+			ul li a:hover h4,
+			ul li a:hover .date {
+				color: rgb(var(--accent));
+			}
+			ul a:hover img {
+				box-shadow: var(--box-shadow);
+			}
+			@media (max-width: 1200px) {
+				ul {
+					gap: 0.5em;
+				}
+				ul li {
+					width: 100%;
+					text-align: center;
+					
+				}
+			}
+		</style>
+
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- <h4 class="title-main">3rd Semester</h4> -->
+			<section>
+				<ul>
+					<li>
+						<a href='https://leeward-loaf-a08.notion.site/b108d155ec6946a0bf366dd502130f44?v=0a9e0c7a56ac49d19a6bb67c75054185&pvs=4'>
+                            <div class="title-box">
+							{/* <img width={720} height={160} src='/examprep.jpg'/> */}
+							    <h4 class="title">Large Scale Data Analysis</h4>
+                                <h>Link to my notion</h>
+                            </div>
+						</a>
+                        <br> 
+                        <a href='https://leeward-loaf-a08.notion.site/1977ffcadfe74157b51926189ebf2720?v=18102569a9cb4e09acf5fbaa517c06ca&pvs=4'>
+							<div class="title-box">
+                                {/* <img width={720} height={160} src='/examprep.jpg'/>*/}
+							    <h4 class="title">Natural Language Processing - Deep Learning</h4>
+                                <h>Link to my notion</h>
+                            </div>
+                            </a>
+                        <br> 
+                        <a href='https://leeward-loaf-a08.notion.site/b3dea053d2b8469d9a1f8c77fa4c0f68?v=aa60daf3fa0c42c4849357f8e61f9f09&pvs=4'>
+							<div class="title-box">
+                                {/* <img width={720} height={160} src='/examprep.jpg'/>*/}
+						
+                                <h4 class="title">Data Visualisation</h4>
+                                <h>Link to my notion</h>
+                            </div>
+						</a>
+					</li>
+
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

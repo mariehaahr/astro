@@ -90,7 +90,7 @@ const posts = (await getCollection('na-exercises')).sort(
 				<ul>
 					{
 						posts.map((post) => (
-							<li>
+							// <li>
 								<a href={`/network-analysis/exercises/${post.slug}/`}>
 									{/*<img width={1200} height={100} src={post.data.heroImage} alt=""/> */}
 									<div class="title-box">
@@ -100,7 +100,7 @@ const posts = (await getCollection('na-exercises')).sort(
 									</div>
 									</p>
 								</a>
-							</li>
+							// </li>
 						))
 					}
 				
